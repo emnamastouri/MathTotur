@@ -51,6 +51,23 @@ def set_background_image(image_file):
 
     st.markdown(f"""
     <style>
+    /* Force white backgrounds and dark text for all inputs and text areas */
+.stTextInput>div>div>input,
+.stTextInput>div>div>textarea,
+.stNumberInput>div>input,
+.stSelectbox>div>div>div[role="combobox"],
+.stButton>button {{
+    background-color: white !important;
+    color: black !important;
+    border: 1px solid #dadce0 !important;
+    border-radius: 8px !important;
+}}
+
+/* Keep hover effects for your custom buttons */
+.stButton>button:hover {{
+    box-shadow: 0 3px 8px rgba(0,0,0,0.15) !important;
+    transform: translateY(-1px);
+}}            
     .stApp {{
         background-image: url("data:image/png;base64,{encoded}");
         background-size: min(60vw, 700px);
