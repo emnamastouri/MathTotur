@@ -1,0 +1,6 @@
+[browser]
+gatherUsageStats = false
+
+[language]
+# Cela aidera Streamlit à choisir le format de date local
+locale = "fr_FR"
