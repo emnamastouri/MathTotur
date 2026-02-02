@@ -65,7 +65,7 @@ def set_background_image(image_file):
         background-color: rgba(255,255,255,0.88);
     }}
 
-    header {{visibility: visible;}}
+    header {{visibility: hidden;}}
 
     .block-container {{
         padding-top: 1rem;
