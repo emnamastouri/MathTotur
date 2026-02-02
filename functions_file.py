@@ -58,6 +58,7 @@ def set_background_image(image_file):
         background-attachment: fixed;
         background-position: center;
         background-color: #ffffff;
+         color: black; 
     }}
 
     .stApp > div {{

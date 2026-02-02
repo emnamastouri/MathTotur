@@ -4,3 +4,11 @@ gatherUsageStats = false
 [language]
 # Cela aidera Streamlit à choisir le format de date local
 locale = "fr_FR"
+
+[theme]
+base="light"
+primaryColor="#4CAF50"
+backgroundColor="#FFFFFF"
+secondaryBackgroundColor="#F0F2F6"
+textColor="#000000"
+font="sans serif"
