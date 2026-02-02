@@ -4,3 +4,9 @@ dnspython
 authlib
 python-dotenv
 requests
+
+
+
+
+
+bcrypt
