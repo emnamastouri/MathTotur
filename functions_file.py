@@ -46,15 +46,11 @@ def validate_password(pw1: str, pw2: str) -> tuple[bool, str]:
     
     return True, "Mot de passe valide"    
 def set_background_image(image_file):
-    import base64
-    import streamlit as st
-
     with open(image_file, "rb") as f:
         encoded = base64.b64encode(f.read()).decode()
 
     st.markdown(f"""
     <style>
-    /* App background */
     .stApp {{
         background-image: url("data:image/png;base64,{encoded}");
         background-size: min(60vw, 700px);
@@ -64,47 +60,28 @@ def set_background_image(image_file):
         background-color: #ffffff;
     }}
 
-    /* Main container semi-transparent white */
     .stApp > div {{
         background-color: rgba(255,255,255,0.88);
     }}
 
-    /* Hide header */
-    header {{ visibility: hidden; }}
+    header {{visibility: visible;}}
 
-    /* Padding */
     .block-container {{
         padding-top: 1rem;
     }}
 
-    /* All buttons */
-    button, .stButton>button {{
-        background-color: white !important;
-        color: black !important;
-        border: 1px solid #dadce0 !important;
+    .social-wrap button {{
         border-radius: 10px !important;
         padding: 12px !important;
         font-weight: 600 !important;
+        border: 1px solid #dadce0 !important;
+        background-color: white !important;
         transition: 0.2s !important;
     }}
 
-    button:hover, .stButton>button:hover {{
+    .social-wrap button:hover {{
         box-shadow: 0 3px 8px rgba(0,0,0,0.15) !important;
         transform: translateY(-1px);
-    }}
-
-    /* Inputs and textareas */
-    input, textarea, select {{
-        background-color: white !important;
-        color: black !important;
-        border: 1px solid #dadce0 !important;
-        border-radius: 8px !important;
-    }}
-
-    /* Placeholder text */
-    ::placeholder {{
-        color: gray !important;
-        opacity: 1;
     }}
     </style>
     """, unsafe_allow_html=True)
