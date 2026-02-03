@@ -6,6 +6,7 @@ from db_utils import db_users
 from db_utils import db_students
 from db_utils import db_teachers
 import secrets
+import streamlit as st
 
 def hash_password(password: str) -> str:
     return bcrypt.hashpw(password.encode(), bcrypt.gensalt()).decode()
@@ -14,8 +15,10 @@ def verify_password(password: str, hashed: str) -> bool:
 def generate_otp():
     return str(random.randint(100000, 999999))
 def send_email_otp(email, otp):
-    SMTP_USER = "emnamastouri4@gmail.com"
-    SMTP_PASS = "hrtn lypy kcnt tzpm"
+    
+    SMTP_USER = st.secrets["SMTP"]["SMTP_USER"]
+    SMTP_PASS = st.secrets["SMTP"]["SMTP_PASS"]
+
 
     msg = MIMEText(f"Votre code de vérification est : {otp}")
     msg["Subject"] = "MathTutor — Code de vérification"
@@ -183,8 +186,8 @@ def create_google_user(email, name, firstname, phone, role):
     }
 
     result = db_users.users.insert_one(user)
-    return user
-    # return str(result.inserted_id)
+   
+    return str(result.inserted_id)
 def logout_user():
     """
     Efface la session Streamlit utilisateur

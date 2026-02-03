@@ -145,7 +145,4 @@ def google_login():
 
     uri, state = oauth.create_authorization_url(AUTH_URL)
     st.session_state["oauth_state"] = state
-    st.markdown(
-        f'<meta http-equiv="refresh" content="0;URL=\'{uri}\'">',
-        unsafe_allow_html=True
-    )
+    st.experimental_redirect(uri)
