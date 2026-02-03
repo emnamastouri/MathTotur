@@ -134,11 +134,8 @@ def google_callback():
         st.session_state.google_email = email
         st.session_state.google_name = name
         st.session_state.google_firstname = given
-
-
+        
 def google_login():
-    st.error(f"DEBUG REDIRECT_URI = {REDIRECT_URI}")
-
     oauth = OAuth2Session(
         GOOGLE_CLIENT_ID,
         GOOGLE_CLIENT_SECRET,
@@ -147,18 +144,10 @@ def google_login():
     )
 
     uri, state = oauth.create_authorization_url(AUTH_URL)
-
-    st.error("DEBUG AUTH URL BELOW — COPY IT:")
-    st.code(uri)
-
     st.session_state["oauth_state"] = state
-
     st.markdown(
-        f"""
-        <script>
-        window.location.href = "{uri}";
-        </script>
-        """,
-        unsafe_allow_html=True,
+        f'<meta http-equiv="refresh" content="0;URL=\'{uri}\'">',
+        unsafe_allow_html=True
     )
+    st.write("Redirect URI used:", REDIRECT_URI)
 
