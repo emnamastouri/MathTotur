@@ -127,7 +127,7 @@ def google_callback():
         if user["role"] == "enseignant":
             st.switch_page("pages/startab_teacher.py")
         else:
-            st.switch_page("pages/Startab_student.py")
+            st.switch_page("pages/startab_student.py")
 
     else:
         st.session_state.google_pending = True
@@ -149,3 +149,5 @@ def google_login():
         f'<meta http-equiv="refresh" content="0;URL=\'{uri}\'">',
         unsafe_allow_html=True
     )
+    st.write("Redirect URI used:", REDIRECT_URI)
+
